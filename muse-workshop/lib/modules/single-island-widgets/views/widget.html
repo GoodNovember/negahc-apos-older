@@ -1,0 +1,37 @@
+{% set bgColor = data.widget.backgroundColor %}
+{% set textColor = data.widget.textColor %}
+
+<div
+	class="island island--single{% if bgImage %} island--with-bg-image{% else %} island-without-bg-image{% endif %}"
+	style=" 
+		background-color: {{bgColor}};
+	">
+	<div class="island__content" style="color:{{textColor}}" >
+		{{
+			apos.area(data.widget, 'areaContent', {
+				widgets:{
+					'apostrophe-rich-text':{
+						toolbar:[
+							'Bold', 'Italic', 'Link', 'Unlink', 'Styles', 
+							'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+							'BulletedList', 'NumberedList', 'Blockquote', 'Split'],
+						styles:[
+							{ name: 'Title', element: 'h3' },
+							{ name: 'Subtitle', element: 'h4' },
+							{ name: 'Fixed Width', element: 'pre' },
+							{ 
+								name: 'tester', 
+								element: 'span', 
+								attributes:{
+									"class":"tester"
+								} 
+							},
+							{ name: 'Normal', element:'p' }
+						]
+					}
+				}
+			})
+		}}
+	</div>
+
+</div>

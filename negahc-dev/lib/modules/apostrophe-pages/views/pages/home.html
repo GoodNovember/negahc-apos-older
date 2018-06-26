@@ -1,0 +1,38 @@
+{#
+  This is an example home page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block main %}
+  <div class="main-content">
+    {% if not data.user %}
+    <p>
+      <a class="login-link" href="/login">Login</a>
+    </p>
+    {% endif %}
+    {{
+      apos.area(data.page, 'body', {
+        widgets:{
+          'apostrophe-images':{
+            size:'full'
+          },
+          'apostrophe-rich-text':{
+            toolbar:['Styles', 'Bold', 'Italic', 'Link', 'Unlink'],
+            styles:[
+              {name:'Heading', element:'h3'},
+              {name:'Subheading', element:'h4'},
+              {name:'Paragraph', element:'p'}
+            ]
+          },
+          'link':{},
+          'page-link':{},
+          drawer: {},
+          "single-island":{},
+          'double-content':{}
+        }
+      })
+    }}
+  </div>
+{% endblock %}

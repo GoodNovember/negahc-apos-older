@@ -1,0 +1,36 @@
+.island{
+	padding: 2rem;
+	&--double{
+		display: flex;
+		flex-direction: row;
+		.island__content{
+			min-width: 50%;
+		}
+	}
+	.island__content{
+		margin: 0;
+		padding: 1em;
+		flex-grow: 1;
+		.apos-rich-text{
+			width: 36em;
+			margin: 0 auto;
+			max-width: 100%;
+			line-height: 1.5;
+			font-size: 18px;
+		}
+	}
+}
+
+@media only screen and (max-width: 320px){
+	.island{
+		font-size: 16px;
+	}
+}
+
+@media (max-width:800px){
+	.island{
+		&--double{
+			flex-direction: column;
+		}
+	}
+}

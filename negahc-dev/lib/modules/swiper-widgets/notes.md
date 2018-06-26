@@ -1,0 +1,1 @@
+This is a custom widget based on version 4.3.3 of Swiper.js written by GH user: nolimits4web

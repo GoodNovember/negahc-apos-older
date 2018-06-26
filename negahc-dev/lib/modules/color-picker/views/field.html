@@ -1,0 +1,9 @@
+{%- import "apostrophe-schemas:macros.html" as schemas -%}
+
+{% macro colorPicker(field) %}
+	<canvas width="256" height="256" class="color-picker-canvas" data-color-picker></canvas>
+	<div class="color-picker-preview" data-color-picker-preview></div>
+	<div class="color-picker-previous-color" data-color-picker-previous-color></div>
+{% endmacro %}
+
+{{ schemas.fieldset(data, colorPicker) }}

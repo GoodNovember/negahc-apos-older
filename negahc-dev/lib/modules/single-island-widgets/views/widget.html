@@ -1,0 +1,57 @@
+{% set bgImage =  apos.images.first(data.widget.backgroundImage) %}
+{% set bgIsFixed = data.widget.isFixed %}
+{% set bgSize = data.widget.backgroundSizeMode or 'auto' %}
+{% set bgRepeatMode = data.widget.backgroundRepeatMode or 'repeat' %}
+{% set bgPositionMode = data.widget.backgroundPositionMode or 'auto' %}
+{% set bgColor = data.widget.backgroundColor or 'initial' %}
+{% set useLightText = data.widget.shouldUseLightText or false %}
+
+{% if bgImage %}
+	<div class="island island--single island--with-bg" style="
+		background-image:url('{{ apos.attachments.url(bgImage) }}');
+		{% if bgIsFixed %}
+			background-attachment:fixed;
+		{% endif %}
+		background-size:{{ bgSize }};
+		background-repeat:{{ bgRepeatMode }};
+		background-position:{{ bgPositionMode }};
+	">
+{% else %}
+	<div class="island island--single island--without-bg" 
+	{% if bgColor %}
+		style="background-color:{{bgColor}}"
+	{% endif %}
+	>
+{% endif %}
+	<div class="island__content island__content--{{ 'light-text' if useLightText else 'dark-text' }} ">
+		{{ 
+			apos.area(data.widget, 'areaContent', {
+				widgets: {
+					'apostrophe-images': {
+						noHeight: true,
+						focalPoint: true
+					},
+					'apostrophe-rich-text':{
+						toolbar:[
+							'Bold', 'Italic', 'Link', 'Unlink', 'Styles', 
+							'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+							'BulletedList', 'NumberedList', 'Blockquote'],
+						styles:[
+							{ name: 'Title', element: 'h3' },
+							{ name: 'Subtitle', element: 'h4' },
+							{ name: 'Fixed Width', element: 'pre' },
+							{ 
+								name: 'tester', 
+								element: 'span', 
+								attributes:{
+									"class":"tester"
+								} 
+							},
+							{ name: 'Normal', element:'p' }
+						]
+					}
+				}
+			}) 
+		}}
+	</div>
+</div>

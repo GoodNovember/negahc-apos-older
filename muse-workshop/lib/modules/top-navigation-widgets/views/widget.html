@@ -1,0 +1,14 @@
+<div class="navigation navigation--top">
+	<h2><a href="{{ data.home._url }}">{{ data.home.title }}</a></h2>
+	<ul class="tabs">
+	{% for tab in data.home._children %}
+		<li class="
+		{% if data.page and
+			(apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id)
+		%}
+			current
+		{% endif %}
+		"><a href="{{ tab._url }}">{{ tab.title }}</a></li>
+	{% endfor %}
+	</ul>
+</div>

@@ -1,0 +1,39 @@
+// google font
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@import "utils/reset.less";
+@import "island.less";
+
+// Delete the boilerplate CSS below when you are ready to dive in and customize your sites:
+body { background-color: @apos-light; }
+
+.main-content {
+  font-family: 'Roboto', sans-serif;
+
+  // Basic rich-text editor styles:
+  h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  strong { font-weight: bold; }
+  em { font-style: italic; }
+}
+
+footer{
+  padding: 3rem;
+}
+
+body.apos-workflow-draft-page {
+  // this adds some padding to the bottom when you're editing the 
+  // page content so that it won't be hidden behind buttons.
+  margin-top: 6rem;
+  footer{
+    margin-bottom: 6rem;
+  }
+}

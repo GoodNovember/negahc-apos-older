@@ -1,0 +1,7 @@
+{%- import "apostrophe-schemas:macros.html" as schemas -%}
+
+{% macro colorPicker(field) %}
+	<input type='color' data-spectrum-color-picker/>
+{% endmacro %}
+
+{{ schemas.fieldset(data, colorPicker) }}

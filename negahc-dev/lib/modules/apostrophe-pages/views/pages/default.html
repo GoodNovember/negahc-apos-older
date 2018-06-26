@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block beforeMain %}
+	<div class="block hero">
+		<div class="inner">
+			<div class="hero-text">
+				<h4>Welcome to my first Apostrophe site!</h4>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block main %}
+	<div class="main-content">
+		{{ 
+			apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
+				toolbar: [ 'Bold', 'Italic' ] 
+			}) 
+		}}
+		<div>Buisness continues below:</div>
+		{{
+			apos.area(data.page, 'navigation',{
+				widgets:{
+					link:{}
+				}
+			})
+		}}
+  </div>
+{% endblock %}
